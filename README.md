@@ -105,9 +105,12 @@ sudo pacman -S --noconfirm git docker
 # Enable and start Docker service
 sudo systemctl enable docker
 sudo systemctl start docker
-
-# Rest of your installation script goes here...
-# (assuming you have additional installation steps)
+echo "Generating SSH key..."
+######################### SSH KEY #################################################
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+echo "SSH key generation completed."
 
 
 echo "Installation process has completed."
