@@ -96,6 +96,19 @@ xfconf-query -c xfwm4 -p /general/theme -s Nordic-darker
 
 echo "XFCE theme installation completed."
 
+######################### GIT / Docker #################################################
+
+# Update package repositories and install essential packages
+sudo pacman -Syu --noconfirm
+sudo pacman -S --noconfirm git docker
+
+# Enable and start Docker service
+sudo systemctl enable docker
+sudo systemctl start docker
+
+# Rest of your installation script goes here...
+# (assuming you have additional installation steps)
+
 
 echo "Installation process has completed."
 
