@@ -1,0 +1,3 @@
+rsync cron jobs
+MAILTO="m.reid@mas-software.de"
+37 9 * * *  rsync -av --exclude 'node_modules' /home/aurora/Documents/Repos /etc/home/work/linux
