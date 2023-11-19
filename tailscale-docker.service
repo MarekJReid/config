@@ -1,0 +1,13 @@
+[Unit]
+Description=Tailscale Docker Container
+After=docker.service
+Requires=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker run -d --name=tailscale --cap-add=NET_ADMIN --sysctl net.ipv4.conf.all.rp_filter=2 -v /var/run/tailscale:/var/run/tailscale -e TS_AUTHKEY=tskey-auth-kVQcUN5CNTRL-H3taULbVCo7djbBdffEso7AGemq9TLHQ7 -e TS_USERSPACE=1 -p 8080:8080 tailscale/tailscale:latest
+ExecStop=/usr/bin/docker stop tailscale
+
+[Install]
+WantedBy=default.target
+
